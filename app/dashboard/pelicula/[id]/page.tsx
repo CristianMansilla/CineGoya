@@ -27,7 +27,7 @@ const PeliculaPorIdPage = async ({ params }: any) => {
                 <div className="p-6">
                     <h2 className="text-5xl font-semibold text-gray-800">{data.title}</h2>
                     <p className="text-gray-600 mt-2">
-                        <span className="font-bold">Genres: </span>{data.genres.map(genre => genre.name).join(', ')}
+                        <span className="font-bold">Genres: </span>{data.genres.map((genre: { name: string }) => genre.name).join(', ')}
                     </p>
                     <p className="text-gray-600 mt-2">
                     <span className="font-bold">Reseña: </span>{data.overview}
