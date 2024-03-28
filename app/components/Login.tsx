@@ -1,14 +1,11 @@
-"use client"
-
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import { useRouter } from 'next/navigation';
-
 
 const Login = () => {
     const router = useRouter();
 
     return (
-        <>
+        <div className="container mx-auto px-4 flex justify-center">
             <form onSubmit={async (e: any) => {
                 e.preventDefault();
                 
@@ -31,7 +28,7 @@ const Login = () => {
                 if (data.message === "Bienvenido") {
                     router.push("/dashboard");
                 }
-            }}>
+            }} className="w-full max-w-sm">
                 <h2 className="text-2xl font-semibold text-gray-800">Iniciar sesión</h2>
                 <div className="mt-6">
                     <label className="block text-sm font-medium text-gray-700">Usuario</label>
@@ -58,8 +55,7 @@ const Login = () => {
                     <span>Ingresar</span> <ArrowRightIcon className="w-5 md:w-6" />
                 </button>
             </form>
-
-        </>
+        </div>
     )
 }
 
