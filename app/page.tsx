@@ -5,7 +5,7 @@ import Login from './components/Login';
 
 export default function Page() {
   return (
-    <main className="flex min-h-screen flex-col p-6">
+    <main className="flex justify-center flex-col p-3">
       <div className="flex shrink-0 items-end rounded-lg bg-blue-500 md:h-30">
         <Image src="/logo-cinegoya.png" alt='Logo CineGoya' width={100} height={100}></Image>
       </div>
