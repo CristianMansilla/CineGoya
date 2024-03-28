@@ -11,7 +11,6 @@ const PeliCard = ({peli}:any) => {
         <a className="cursor-pointer" onClick={()=>{router.push(`/dashboard/pelicula/${peli.id}`)}}>
             <Image src={url_img + peli.poster_path} width={500} height={500} alt={peli.title} />
         </a>
-        // onClick={()=>{router.push(`/dashboard/pelicula/${peli.title}`)}}
     )
 }
 

@@ -1,8 +1,8 @@
 import PeliCard from "../components/PeliCard";
 import { lusitana } from "../ui/fonts";
 
-let api_key = "736af24316f62ca3b6e44f1263462e62";
 let url_base = "https://api.themoviedb.org/3/movie/popular";
+const api_key = process.env.API_KEY;
 
 
 interface Pelicula {

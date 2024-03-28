@@ -1,7 +1,7 @@
 import Image from "next/image";
 
-let api_key = "736af24316f62ca3b6e44f1263462e62";
 let url_img = "https://image.tmdb.org/t/p/w500";
+const api_key = process.env.API_KEY;
 
 const getPeliculaData = async (id: string) => {
     const response = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${api_key}&language=es-ES`);

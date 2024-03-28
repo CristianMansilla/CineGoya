@@ -11,7 +11,6 @@ export default function RootLayout({
       <body className={`${montserrat.className} antialiased`}>
         {children}
       </body>
-      
     </html>
   );
 }
