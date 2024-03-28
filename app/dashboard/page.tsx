@@ -35,7 +35,7 @@ const Dashboard = async () => {
                     })}
                 </div>
             </main>
-            <footer className="mt-10 -mb-20 flex justify-center items-center">
+            <footer className="mt-10 mb-1 flex justify-center items-center">
                 <p>Hecho con 💙 por CRISTIAN</p>
             </footer>
         </>
