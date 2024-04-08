@@ -1,7 +1,9 @@
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 
 const Login = () => {
+    const [error, setError] = useState<String | null>(null);
     const router = useRouter();
 
     return (
@@ -25,9 +27,13 @@ const Login = () => {
                 );
 
                 const data = await response.json();
-                if (data.message === "Bienvenido") {
+
+                if(response.ok === false){
+                    setError(data.message);
+                } else{
                     router.push("/dashboard");
                 }
+                
             }} className="w-full max-w-sm">
                 <h2 className="text-2xl font-semibold text-gray-800">Iniciar sesión</h2>
                 <div className="mt-6">
@@ -54,6 +60,8 @@ const Login = () => {
                 >
                     <span>Ingresar</span> <ArrowRightIcon className="w-5 md:w-6" />
                 </button>
+
+                {error && <p className='text-red-500'>{error}</p>}
             </form>
         </div>
     )
