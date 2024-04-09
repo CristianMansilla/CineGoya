@@ -1,9 +1,26 @@
 import PeliCard from "../components/PeliCard";
 import { lusitana } from "../ui/fonts";
 
-let url_base = "https://api.themoviedb.org/3/movie/popular";
-const api_key = process.env.API_KEY;
+/* let url_base = "https://api.themoviedb.org/3/movie/popular";
+const api_key = process.env.API_KEY; */
 
+const urlLocal = process.env.NEXT_PUBLIC_URL;
+
+const getDashboardData = async () => {
+    try {
+        const response = await fetch(
+            `${urlLocal}/api/dashboard`
+        );
+
+        const data = await response.json();
+
+        return data;
+    } catch (error) {
+        console.error(error);
+
+        return { data: [] };
+    }
+};
 
 interface Pelicula {
     id: number;
@@ -11,9 +28,11 @@ interface Pelicula {
 }
 
 const Dashboard = async () => {
-    const response = await fetch(`${url_base}?api_key=${api_key}`);
+    /* const response = await fetch(`${url_base}?api_key=${api_key}`);
     const data = await response.json();
-    const peliculasPopulares = data.results;
+    const peliculasPopulares = data.results; */
+
+    const { peliculasPopulares } = await getDashboardData();
 
     interface Pelicula {
         id: number;
@@ -23,9 +42,7 @@ const Dashboard = async () => {
     return (
         <>
             <main>
-                <h1 className={`${lusitana.className} mb-4 text-xl md:text-2xl`}>
-                    Cartelera
-                </h1>
+                <h1 className="text-2xl font-bold mb-4">Cartelera</h1>
                 <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 overflow-hidden">
                     {peliculasPopulares.map((peli: Pelicula) => {
                         return (

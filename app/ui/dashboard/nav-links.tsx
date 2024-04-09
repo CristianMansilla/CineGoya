@@ -4,6 +4,7 @@ import {
   UserGroupIcon,
   HomeIcon,
   DocumentDuplicateIcon,
+  EyeIcon,
 } from '@heroicons/react/24/outline';
 import { FilmIcon } from '@heroicons/react/24/solid';
 import Link from 'next/link';
@@ -14,6 +15,7 @@ import { usePathname } from 'next/navigation';
 const links = [
   { name: 'Inicio', href: '/dashboard', icon: HomeIcon },
   { name: 'Precios', href: '/dashboard/precios', icon: FilmIcon },
+  { name: 'Críticas', href: '/dashboard/criticas', icon: EyeIcon },
 ];
 
 export default function NavLinks() {
