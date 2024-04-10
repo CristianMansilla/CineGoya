@@ -8,6 +8,8 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
 
     const { user, password } = body;
 
+    await supabase.auth.getUser();
+
     const usuarioEncontrado = await supabase.from("users")
                                             .select("*")
                                             .filter("username", "eq", user)

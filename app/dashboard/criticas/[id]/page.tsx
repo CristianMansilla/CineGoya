@@ -50,10 +50,8 @@ const CriticaPorIdPage = async ({ params }: any) => {
             <h3 className="text-2xl font-semibold mb-4">Opiniones</h3>
             <div>
                 {reviews.map((review: any) => (
-                    <div key={review.id}>
+                    <div className="mb-5" key={review.id}>
                         <p>&rdquo;{review.review}&rdquo; <span className="text-red-400">{review.author}</span> de <span className="text-sky-600">{review.company}</span></p>
-                        {/* <h2>{review.author}</h2> */}
-                        <br></br>
                     </div>
                 ))}
             </div>
