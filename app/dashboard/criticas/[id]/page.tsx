@@ -47,7 +47,7 @@ const CriticaPorIdPage = async ({ params }: any) => {
                 </div>
             </div>
 
-            <h3 className="text-2xl font-semibold mb-4">Opiniones</h3>
+            <h3 className="text-2xl font-semibold mb-4">¿Qué dice la crítca de &apos;{criticism.title}&apos;?</h3>
             <div>
                 {reviews.map((review: any) => (
                     <div className="mb-5" key={review.id}>

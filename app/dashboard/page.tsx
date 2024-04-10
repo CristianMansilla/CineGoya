@@ -34,29 +34,31 @@ const Dashboard = async () => {
 
     const { peliculasPopulares } = await getDashboardData();
 
-    /* interface Pelicula {
-        id: number;
-        poster_path: string;
-    } */
-
-    return (
-        <>
-            <main>
-                <h1 className="text-2xl font-bold mb-4">Cartelera</h1>
-                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 overflow-hidden">
-                    {peliculasPopulares.map((peli: Pelicula) => {
-                        return (
-                            <PeliCard key={peli.id} peli={peli}></PeliCard>
-                        )
-
-                    })}
-                </div>
-            </main>
-            <footer className="mt-10 mb-1 flex justify-center items-center">
-                <p>Hecho con 💙 por CRISTIAN</p>
-            </footer>
-        </>
-    )
+    try {
+        const { peliculasPopulares } = await getDashboardData();
+        console.log("Datos de películas populares:", peliculasPopulares);
+        
+        return (
+            <>
+                <main>
+                    <h1 className="text-2xl font-bold mb-4">Cartelera</h1>
+                    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 overflow-hidden">
+                        {peliculasPopulares.map((peli: Pelicula) => {
+                            return (
+                                <PeliCard key={peli.id} peli={peli}></PeliCard>
+                            )
+    
+                        })}
+                    </div>
+                </main>
+                <footer className="mt-10 mb-1 flex justify-center items-center">
+                    <p>Hecho con 💙 por CRISTIAN</p>
+                </footer>
+            </>
+        )
+    } catch (error) {
+        console.error("Error al obtener películas populares:", error);
+    }
 }
 
 export default Dashboard;
