@@ -20,6 +20,13 @@ const getDashboardData = async () => {
     }
 };
 
+interface Critica {
+    id: number;
+    title: string;
+    description: string;
+    image: string;
+}
+
 const Criticas = async () => {
     const data = await getDashboardData();
     const criticisms = data.criticisms;
@@ -29,7 +36,7 @@ const Criticas = async () => {
         <main>
             <h1 className="text-2xl font-bold mb-4">Críticas</h1>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 overflow-hidden">
-                {criticisms.map((critica) => {
+                {criticisms.map((critica: Critica) => {
                     return (
                         <CriticismCard key={critica.id} criticism={critica}></CriticismCard>
                     )
@@ -40,3 +47,5 @@ const Criticas = async () => {
 }
 
 export default Criticas;
+
+export const revalidate = 0;

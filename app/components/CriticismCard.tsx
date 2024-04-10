@@ -1,12 +1,14 @@
 "use client"
 
 import Image from "next/image"
+import { useRouter } from "next/navigation";
 
 const CriticismCard = ({ criticism }: any) => {
+    const router = useRouter();
     return (
-        <a className="block cursor-pointer border rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300 ease-in-out" onClick={() => { }}>
+        <a className="block cursor-pointer border rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300 ease-in-out" onClick={()=>{router.push(`/dashboard/criticas/${criticism.id}`) }}>
             <div className="relative h-48 w-full">
-                <Image src="https://img-tomatazos.buscafs.com/432471/432471_1140x516.jpg" layout="fill" objectFit="cover" alt={criticism.title} />
+                <Image src={criticism.image} layout="fill" objectFit="cover" alt={criticism.title} />
             </div>
             <div className="p-4 h-52">
                 <h2 className="text-lg font-semibold mb-2">{criticism.title}</h2>

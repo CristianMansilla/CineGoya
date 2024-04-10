@@ -34,10 +34,10 @@ const Dashboard = async () => {
 
     const { peliculasPopulares } = await getDashboardData();
 
-    interface Pelicula {
+    /* interface Pelicula {
         id: number;
         poster_path: string;
-    }
+    } */
 
     return (
         <>
