@@ -12,7 +12,7 @@ const getCriticaData = async (id: string) => {
         .limit(1)
         .single();
 
-    // Obtener datos de las revisiones asociadas a la crítica
+    // Obtener datos de las opiniones asociadas a la crítica
     const { data: reviews, error } = await supabase
         .from("reviews")
         .select()
