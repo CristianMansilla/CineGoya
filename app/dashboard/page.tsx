@@ -36,7 +36,7 @@ const Dashboard = async () => {
 
     try {
         const { peliculasPopulares } = await getDashboardData();
-        console.log("Datos de películas populares:", peliculasPopulares);
+        console.log("Datos de películas popus:", peliculasPopulares);
         
         return (
             <>
@@ -62,3 +62,5 @@ const Dashboard = async () => {
 }
 
 export default Dashboard;
+
+export const revalidate = 0;
