@@ -2,6 +2,20 @@ import Link from 'next/link';
 import NavLinks from '@/app/ui/dashboard/nav-links';
 import { PowerIcon } from '@heroicons/react/24/outline';
 import Image from 'next/image';
+/* import { createServerClient } from "@/app/utils/supabase/server";
+import { redirect } from 'next/navigation'; */
+
+/* const handleLogout = async () => {
+  const supabase = createServerClient();
+  const { error } = await supabase.auth.signOut();
+
+  if (error) {
+    console.error('Error al cerrar sesión:', error.message);
+  } else {
+    console.log('Sesión cerrada exitosamente');
+    return redirect('/');
+  }
+}; */
 
 export default function SideNav() {
   return (

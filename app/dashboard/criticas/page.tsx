@@ -1,4 +1,6 @@
 import CriticismCard from "@/app/components/CriticismCard";
+import Link from "next/link";
+import { PlusIcon, PencilIcon, TrashIcon } from '@heroicons/react/24/outline';
 
 const urlLocal = process.env.NEXT_PUBLIC_URL;
 
@@ -35,6 +37,15 @@ const Criticas = async () => {
     return (
         <main>
             <h1 className="text-2xl font-bold mb-4">Críticas</h1>
+
+            <div className="flex justify-end mb-4 gap-3">
+                <Link href="/add-criticism" passHref>
+                    <div className="bg-green-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer">
+                        <PlusIcon className="w-6" />
+                    </div>
+                </Link>
+            </div>
+
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 overflow-hidden">
                 {criticisms.map((critica: Critica) => {
                     return (

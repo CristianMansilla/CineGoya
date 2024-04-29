@@ -1,5 +1,7 @@
 import { createServerClient } from "@/app/utils/supabase/server";
 import Image from "next/image";
+import Link from "next/link";
+import {PencilIcon, TrashIcon } from '@heroicons/react/24/outline';
 
 const getCriticaData = async (id: string) => {
     const supabase = createServerClient();

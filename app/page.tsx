@@ -1,9 +1,15 @@
 "use client"
-
 import Image from 'next/image';
 import Login from './components/Login';
+/* import { createServerClient } from './utils/supabase/server';
+import { redirect } from 'next/navigation'; */
 
 export default function Page() {
+  /* const supabase = createServerClient();
+  const user = await supabase.auth.getUser();
+  if (user) {
+    redirect("/dashboard");
+  } */
   return (
     <main className="flex justify-center flex-col p-3">
       <div className="flex shrink-0 items-end rounded-lg bg-blue-500 md:h-30">

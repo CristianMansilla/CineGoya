@@ -1,5 +1,7 @@
 import PeliCard from "../components/PeliCard";
 import { lusitana } from "../ui/fonts";
+import { createServerClient } from "../utils/supabase/server";
+import { redirect } from 'next/navigation';
 
 /* let url_base = "https://api.themoviedb.org/3/movie/popular";
 const api_key = process.env.API_KEY; */
@@ -31,6 +33,12 @@ const Dashboard = async () => {
     /* const response = await fetch(`${url_base}?api_key=${api_key}`);
     const data = await response.json();
     const peliculasPopulares = data.results; */
+
+    const supabase = createServerClient();
+    const user = await supabase.auth.getUser();
+    if (user.error) {
+        return redirect('/');
+    }
 
     const { peliculasPopulares } = await getDashboardData();
 
