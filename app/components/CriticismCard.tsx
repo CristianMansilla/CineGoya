@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { PencilIcon, TrashIcon, EyeIcon } from '@heroicons/react/24/outline';
 import { useState } from "react";
+import DeleteCriticaButton from "./DeleteCriticaButton";
 
 const CriticismCard = ({ criticism }: any) => {
     const router = useRouter();
@@ -15,9 +16,14 @@ const CriticismCard = ({ criticism }: any) => {
     const handleMouseLeave = () => {
         setIsHovered(false);
     };
+    
 
-    const handleClick = () => {
+    const handleSeeClick = () => {
         router.push(`/dashboard/criticas/${criticism.id}`);
+    };
+
+    const handleEditClick = () => {
+        router.push(`/dashboard/criticas/${criticism.id}/editCritica`);
     };
 
     return (
@@ -38,7 +44,7 @@ const CriticismCard = ({ criticism }: any) => {
                             className="text-gray-300 hover:text-yellow-400"
                             onClick={(e) => {
                                 e.stopPropagation();
-                                handleClick();
+                                handleSeeClick();
                             }}
                         >
                             <EyeIcon className="h-9 w-9" />
@@ -48,22 +54,13 @@ const CriticismCard = ({ criticism }: any) => {
                             className="text-gray-300 hover:text-blue-600"
                             onClick={(e) => {
                                 e.stopPropagation();
-                                // Manejar acción de editar
+                                handleEditClick();
                             }}
                         >
                             <PencilIcon className="h-9 w-9" />
                         </button>
 
-                        <button
-                            className="text-gray-300 hover:text-red-500"
-                            onClick={(e) => {
-                                e.stopPropagation();
-                                // Manejar acción de eliminar
-                                alert("Estas seguro que deseas eliminar?")
-                            }}
-                        >
-                            <TrashIcon className="h-9 w-9" />
-                        </button>
+                        <DeleteCriticaButton criticism={criticism}></DeleteCriticaButton>
                     </div>
                 </div>
             )}
@@ -72,3 +69,5 @@ const CriticismCard = ({ criticism }: any) => {
 };
 
 export default CriticismCard;
+
+export const revalidate = 0;

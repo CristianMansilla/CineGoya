@@ -1,6 +1,9 @@
+"use client"
+
 import CriticismCard from "@/app/components/CriticismCard";
 import Link from "next/link";
 import { PlusIcon } from '@heroicons/react/24/outline';
+import { useEffect, useState } from "react";
 
 const urlLocal = process.env.NEXT_PUBLIC_URL;
 
@@ -30,10 +33,25 @@ interface Critica {
     image: string;
 }
 
-const Criticas = async () => {
-    const data = await getDashboardData();
+const Criticas = () => {
+    /* const data = await getDashboardData();
     const criticisms = data.criticisms;
-    console.log(criticisms);
+    console.log(criticisms); */
+
+    const [criticisms, setCriticisms] = useState([]);
+
+    const fetchData = async () => {
+        const data = await getDashboardData();
+        setCriticisms(data.criticisms);
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
+    const updateCriticisms = async () => {
+        await fetchData();
+    };
 
     return (
         <main>
@@ -50,7 +68,7 @@ const Criticas = async () => {
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 overflow-hidden">
                 {criticisms.map((critica: Critica) => {
                     return (
-                        <CriticismCard key={critica.id} criticism={critica}></CriticismCard>
+                        <CriticismCard key={critica.id} criticism={critica} updateCriticisms={updateCriticisms}></CriticismCard>
                     )
                 })}
             </div>
@@ -60,4 +78,3 @@ const Criticas = async () => {
 
 export default Criticas;
 
-export const revalidate = 0;

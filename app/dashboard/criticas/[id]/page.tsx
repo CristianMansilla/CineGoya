@@ -76,3 +76,5 @@ const CriticaPorIdPage = async ({ params }: any) => {
 }
 
 export default CriticaPorIdPage;
+
+export const revalidate = 0;
