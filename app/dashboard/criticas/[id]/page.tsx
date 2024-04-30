@@ -1,7 +1,7 @@
 import { createServerClient } from "@/app/utils/supabase/server";
 import Image from "next/image";
 import Link from "next/link";
-import {PencilIcon, TrashIcon } from '@heroicons/react/24/outline';
+import {PencilIcon, PlusIcon, TrashIcon } from '@heroicons/react/24/outline';
 
 const getCriticaData = async (id: string) => {
     const supabase = createServerClient();
@@ -47,6 +47,20 @@ const CriticaPorIdPage = async ({ params }: any) => {
                         </p>
                     </div>
                 </div>
+            </div>
+
+            <div className="flex justify-end mb-4 gap-3">
+                <Link href="/dashboard/criticas/id/create" passHref>
+                    <div className="bg-green-500 hover:bg-yellow-400 text-white hover:text-black font-bold py-2 px-4 rounded cursor-pointer">
+                        <PlusIcon className="w-6" />
+                    </div>
+                </Link>
+
+                <Link href="/dashboard/criticas/create" passHref>
+                    <div className="bg-blue-700 hover:bg-yellow-400 text-white hover:text-black font-bold py-2 px-4 rounded cursor-pointer">
+                        <PencilIcon className="w-6" />
+                    </div>
+                </Link>
             </div>
 
             <h3 className="text-2xl font-semibold mb-4">¿Qué dice la crítca de &apos;{criticism.title}&apos;?</h3>

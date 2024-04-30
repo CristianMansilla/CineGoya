@@ -36,6 +36,7 @@ const Dashboard = async () => {
 
     const supabase = createServerClient();
     const user = await supabase.auth.getUser();
+    
     if (user.error) {
         return redirect('/');
     }
