@@ -1,3 +1,5 @@
+"use client";
+
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
@@ -10,7 +12,7 @@ const Login = () => {
         <div className="container mx-auto px-4 flex justify-center">
             <form onSubmit={async (e: any) => {
                 e.preventDefault();
-                
+
                 const formData = new FormData(e.currentTarget);
                 const user = formData.get("user");
                 const password = formData.get("password");
@@ -28,12 +30,12 @@ const Login = () => {
 
                 const data = await response.json();
 
-                if(response.ok === false){
+                if (response.ok === false) {
                     setError(data.message);
-                } else{
+                } else {
                     router.push("/dashboard");
                 }
-                
+
             }} className="w-full max-w-sm">
                 <h2 className="text-2xl font-semibold text-gray-800">Iniciar sesión</h2>
                 <div className="mt-6">
