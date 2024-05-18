@@ -4,22 +4,27 @@ import { useRouter } from "next/navigation";
 import { createClient } from "../utils/supabase/client";
 import { useEffect, useState } from "react";
 
+interface DataProps {
+    id: any
+    title: any
+}
+
 const CreateReviewForm = () => {
 
     const supabase = createClient();
     const router = useRouter();
     const [successMessage, setSuccessMessage] = useState('');
-    const [criticisms, setCriticisms] = useState([]);
+    const [criticisms, setCriticisms] = useState<DataProps[]>([]);
 
     useEffect(() => {
         async function fetchCriticisms() {
             try {
-                const { data, error } = await supabase.from('criticisms').select('title');
+                const { data, error } = await supabase.from('criticisms').select('id, title');
                 if (error) {
                     throw error;
                 }
                 setCriticisms(data || []);
-            } catch (error) {
+            } catch (error: any) {
                 console.error('Error al obtener los títulos de las críticas:', error.message);
             }
         }
@@ -47,10 +52,10 @@ const CreateReviewForm = () => {
 
                 const formData = new FormData(event.currentTarget);
                 const review = formData.get('review')?.toString();
-                const author  = formData.get('author ')?.toString();
-                const company  = formData.get('company ')?.toString();
+                const author = formData.get('author ')?.toString();
+                const company = formData.get('company ')?.toString();
 
-                const { error } = await supabase.from('reviews').insert({ review, author, company, id_criticisms });
+                const { error } = await supabase.from('reviews').insert({ review, author, company });
 
                 if (error) {
                     console.error('Error al crear la crítica:', error.message);

@@ -3,7 +3,7 @@ import { useState } from "react";
 import DeleteConfirmationModal from "./DeleteModal/DeleteConfirmationModal";
 
 interface DeleteCriticaButtonProps {
-    onDelete: () => void; // Esta función debe ser pasada como prop desde el componente que usa DeleteCriticaButton
+    onDelete: () => void;
 }
 
 const DeleteCriticaButton = ({ onDelete }: DeleteCriticaButtonProps) => {

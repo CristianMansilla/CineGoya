@@ -1,13 +1,17 @@
-"use client"
+"use client";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { PencilIcon, TrashIcon, EyeIcon } from '@heroicons/react/24/outline';
 import { useState } from "react";
 import DeleteCriticaButton from "./DeleteCriticaButton";
+import { createClient } from "../utils/supabase/client";
 
 const CriticismCard = ({ criticism }: any) => {
     const router = useRouter();
     const [isHovered, setIsHovered] = useState(false);
+    const [successMessage, setSuccessMessage] = useState('');
+    const [isVisible, setIsVisible] = useState(true);
+    const supabase = createClient();
 
     const handleMouseEnter = () => {
         setIsHovered(true);
@@ -16,7 +20,6 @@ const CriticismCard = ({ criticism }: any) => {
     const handleMouseLeave = () => {
         setIsHovered(false);
     };
-    
 
     const handleSeeClick = () => {
         router.push(`/dashboard/criticas/${criticism.id}`);
@@ -25,6 +28,30 @@ const CriticismCard = ({ criticism }: any) => {
     const handleEditClick = () => {
         router.push(`/dashboard/criticas/${criticism.id}/editCritica`);
     };
+
+    const onDelete = async () => {
+        console.log("Deleting criticism with id:", criticism.id); // Log the ID for debugging
+        const { data, error } = await supabase
+            .from('criticisms')
+            .delete()
+            .eq("id", criticism.id);
+
+        console.log(data, error);
+
+        if (!error) {
+            setSuccessMessage('¡La crítica se eliminó con éxito!');
+            setIsVisible(false);
+            setTimeout(() => {
+                setSuccessMessage('');
+            }, 3000);
+        } else {
+            console.error("Failed to delete the criticism", error);
+        }
+    };
+
+    if (!isVisible) {
+        return null;
+    }
 
     return (
         <div className="relative" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
@@ -60,8 +87,13 @@ const CriticismCard = ({ criticism }: any) => {
                             <PencilIcon className="h-9 w-9" />
                         </button>
 
-                        <DeleteCriticaButton criticism={criticism}></DeleteCriticaButton>
+                        <DeleteCriticaButton onDelete={onDelete}></DeleteCriticaButton>
                     </div>
+                </div>
+            )}
+            {successMessage && (
+                <div className="fixed bottom-0 right-0 mb-4 mr-4 bg-green-200 text-green-800 p-2 rounded-md">
+                    {successMessage}
                 </div>
             )}
         </div>
