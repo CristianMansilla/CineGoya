@@ -3,10 +3,13 @@
 import { useRouter } from "next/navigation";
 import { createClient } from "../utils/supabase/client";
 import { FormEvent, useEffect, useState } from "react";
+import useSWR, { mutate } from 'swr';
 
 interface EditCriticismFormProps {
     criticism: any
 }
+
+const urlLocal = process.env.NEXT_PUBLIC_URL;
 
 const EditCriticaForm = ({ criticism }: EditCriticismFormProps) => {
     const supabase = createClient();
@@ -39,6 +42,9 @@ const EditCriticaForm = ({ criticism }: EditCriticismFormProps) => {
         } else {
             console.log('Crítica editada exitosamente');
             setSuccessMessage('¡La crítica se editó con éxito!');
+
+            // Invalida el caché después de editar la crítica con éxito
+            mutate(`${urlLocal}/api/criticisms`);
         }
     };
 

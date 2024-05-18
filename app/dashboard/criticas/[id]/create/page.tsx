@@ -1,8 +1,11 @@
 import CreateReviewForm from "@/app/components/CreateReviewForm";
 
-const CreateReview = () => {
+const CreateReview = ({ params }: any) => {
+    const { id } = params;
+    console.log("ID recibido en CreateReview:", id);
+
     return (
-        <CreateReviewForm></CreateReviewForm>
+        <CreateReviewForm selectedCriticismId={id}></CreateReviewForm>
     )
 }
 

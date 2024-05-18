@@ -12,4 +12,6 @@ const EditCritica = async ({ params }: any) => {
     return <EditCriticaForm criticism={data}></EditCriticaForm>;
 }
 
-export default EditCritica
+export default EditCritica;
+
+export const revalidate = 0;

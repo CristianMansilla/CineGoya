@@ -1,3 +1,4 @@
+import { useState } from "react";
 import PeliCard from "../components/PeliCard";
 import { lusitana } from "../ui/fonts";
 import { createServerClient } from "../utils/supabase/server";
@@ -40,7 +41,7 @@ const Dashboard = async () => {
     if (user.error) {
         return redirect('/');
     }
-
+    
     const { peliculasPopulares } = await getDashboardData();
 
     try {
