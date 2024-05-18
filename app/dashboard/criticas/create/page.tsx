@@ -2,7 +2,10 @@ import CreateCriticaForm from "@/app/components/CreateCriticaForm";
 
 const CreateCritica = () => {
     return (
-        <CreateCriticaForm></CreateCriticaForm>
+        <>
+            <title>Crear Crítica - CineGoya</title>
+            <CreateCriticaForm></CreateCriticaForm>
+        </>
     )
 }
 

@@ -107,11 +107,10 @@ const CreateReviewForm = ({ selectedCriticismId }: { selectedCriticismId: number
                 </div>
                 <div className="mb-4">
                     <label htmlFor="review" className="block text-sm font-medium text-gray-700">Reseña:</label>
-                    <input
-                        type="text"
+                    <textarea
                         id="review"
                         name="review"
-                        className="mt-1 p-2 border border-gray-300 rounded-md w-full"
+                        className="mt-1 p-2 border border-gray-300 rounded-md w-full h-36"
                         required
                     />
                 </div>

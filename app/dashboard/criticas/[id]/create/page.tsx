@@ -5,7 +5,10 @@ const CreateReview = ({ params }: any) => {
     console.log("ID recibido en CreateReview:", id);
 
     return (
-        <CreateReviewForm selectedCriticismId={id}></CreateReviewForm>
+        <>
+            <title>Crear Reseña - CineGoya</title>
+            <CreateReviewForm selectedCriticismId={id}></CreateReviewForm>
+        </>
     )
 }
 

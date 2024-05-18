@@ -9,7 +9,12 @@ const EditCritica = async ({ params }: any) => {
         .eq('id', params.id)
         .single();
 
-    return <EditCriticaForm criticism={data}></EditCriticaForm>;
+    return (
+        <>
+            <title>Editar Crítica - CineGoya</title>
+            <EditCriticaForm criticism={data}></EditCriticaForm>
+        </>
+    );
 }
 
 export default EditCritica;

@@ -4,7 +4,6 @@ import CriticismCard from "@/app/components/CriticismCard";
 import Link from "next/link";
 import { PlusIcon } from '@heroicons/react/24/outline';
 import { useEffect, useState } from "react";
-import Head from "next/head";
 
 const urlLocal = process.env.NEXT_PUBLIC_URL;
 
@@ -56,10 +55,7 @@ const Criticas = () => {
 
     return (
         <>
-            <Head>
-                <title>Críticas - CineGoya</title>
-                <link rel="icon" href="/favicon.ico" />
-            </Head>
+            <title>Críticas - CineGoya</title>
 
             <main>
                 <h1 className="text-2xl font-bold mb-4">Críticas</h1>

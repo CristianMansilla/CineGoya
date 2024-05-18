@@ -2,7 +2,6 @@ import Image from 'next/image';
 import Login from './components/Login';
 import { createServerClient } from './utils/supabase/server';
 import { redirect } from 'next/navigation';
-import Head from 'next/head';
 
 export default async function Page() {
   const supabase = createServerClient();
@@ -12,10 +11,7 @@ export default async function Page() {
   }
   return (
     <>
-      <Head>
-        <link rel="icon" href="/images/icon.png" />
-        <title>CineGoya - Login</title>
-      </Head>
+      <title>Login - CineGoya</title>
 
       <div className="relative w-full h-screen overflow-hidden">
         <video

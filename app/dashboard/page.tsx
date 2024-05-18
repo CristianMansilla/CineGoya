@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import PeliCard from "../components/PeliCard";
 import { lusitana } from "../ui/fonts";
 import { createServerClient } from "../utils/supabase/server";
 import { redirect } from 'next/navigation';
+import DashboardSkeleton from "../ui/skeletons";
+import { resolve } from "path";
 
 /* let url_base = "https://api.themoviedb.org/3/movie/popular";
 const api_key = process.env.API_KEY; */
@@ -14,7 +16,7 @@ const getDashboardData = async () => {
         const response = await fetch(
             `${urlLocal}/api/dashboard`
         );
-
+        
         const data = await response.json();
 
         return data;
@@ -50,6 +52,8 @@ const Dashboard = async () => {
         
         return (
             <>
+                <title>Inicio - CineGoya</title>
+
                 <main>
                     <h1 className="text-2xl font-bold mb-4">Cartelera</h1>
                     <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 overflow-hidden">
