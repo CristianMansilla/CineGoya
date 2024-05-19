@@ -2,7 +2,7 @@
 <p align="center">
   <img src="./public/logo-cinegoya.png" width=250><br>
 </p>
-CineGoya es un cine online donde podrás leer las reseñas de los mejores críticos del mundo 🌐. Además, comprar entradas para tus funciones favoritas sin salir de tu casa.<br><br>
+CineGoya es un cine online en el cual podrás leer las reseñas a las películas de los mejores críticos del mundo 🌐. Además, comprar entradas para tus funciones favoritas sin salir de tu casa.<br><br>
 
 ![Icon status project](http://img.shields.io/static/v1?label=STATUS&message=In%20development&color=RED&style=for-the-badge)
 
