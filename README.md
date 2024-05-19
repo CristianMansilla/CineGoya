@@ -84,10 +84,9 @@ Usuario:
 
 ## Desarrollador
 [<img src="https://avatars.githubusercontent.com/u/74721434?v=4" width=50><br><sub>Mansilla, Cristian</sub>](https://github.com/cristianmansilla)
-
+<br>
 ---
 <h2>Gracias por visitar el proyecto!</h2>
-
-![Thanks](https://firebasestorage.googleapis.com/v0/b/cinegoya-255f9.appspot.com/o/Im%C3%A1genes%2Fthanks.gif?alt=media&token=b638ea64-db06-45c6-9250-ffb333439feb)
-
----
+<p align="center">
+  <img src="https://firebasestorage.googleapis.com/v0/b/cinegoya-255f9.appspot.com/o/Im%C3%A1genes%2Fthanks.gif?alt=media&token=b638ea64-db06-45c6-9250-ffb333439feb" width=350><br>
+</p>
