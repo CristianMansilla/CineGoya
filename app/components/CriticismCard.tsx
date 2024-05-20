@@ -6,7 +6,7 @@ import { useState } from "react";
 import DeleteCriticaButton from "./DeleteCriticaButton";
 import { createClient } from "../utils/supabase/client";
 
-const CriticismCard = ({ criticism }: any) => {
+const CriticismCard = ({ criticism, rol }: any) => {
     const router = useRouter();
     const [isHovered, setIsHovered] = useState(false);
     const [successMessage, setSuccessMessage] = useState('');
@@ -77,17 +77,21 @@ const CriticismCard = ({ criticism }: any) => {
                             <EyeIcon className="h-9 w-9" />
                         </button>
 
-                        <button
-                            className="text-gray-300 hover:text-blue-600"
-                            onClick={(e) => {
-                                e.stopPropagation();
-                                handleEditClick();
-                            }}
-                        >
-                            <PencilIcon className="h-9 w-9" />
-                        </button>
+                        {rol === 'administrador' && (
+                            <>
+                                <button
+                                    className="text-gray-300 hover:text-blue-600"
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        handleEditClick();
+                                    }}
+                                >
+                                    <PencilIcon className="h-9 w-9" />
+                                </button>
 
-                        <DeleteCriticaButton onDelete={onDelete}></DeleteCriticaButton>
+                                <DeleteCriticaButton onDelete={onDelete}></DeleteCriticaButton>
+                            </>
+                        )}
                     </div>
                 </div>
             )}

@@ -4,10 +4,9 @@ import { error } from "console";
 
 export const POST = async (req: NextRequest, res: NextResponse) => {
     const body = await req.json();
+    const { user, password } = body;
     
     const supabase = createServerClient();
-
-    const { user, password } = body;
 
     // await supabase.auth.getUser();
 

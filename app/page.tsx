@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Login from './components/Login';
 import { createServerClient } from './utils/supabase/server';
 import { redirect } from 'next/navigation';
+import Auth from './components/Auth';
 
 export default async function Page() {
   const supabase = createServerClient();
@@ -29,8 +30,8 @@ export default async function Page() {
             <Image className='opacity-100' src="/logo-cinegoya.png" alt="Logo CineGoya" width={100} height={100}></Image>
           </div>
           <div className="mt-4 flex grow flex-col gap-4 md:flex-row">
-            <div className="flex flex-col justify-center opacity-85 gap-6 rounded-lg bg-gray-50 px-6 py-10 md:w-2/5 md:px-20">
-              <Login />
+            <div className="flex flex-col justify-center opacity-85 gap-6 rounded-lg bg-gray-50 px-6 -py-5 md:w-2/5 md:px-20">
+              <Auth/>
             </div>
             <div className="flex items-center justify-center opacity-80 p-6 md:w-3/5 md:px-28 md:py-12 loginImage">
               <Image className="bord" src="/hero-cinema.svg" alt="Logo CineGoya" width={350} height={350}></Image>

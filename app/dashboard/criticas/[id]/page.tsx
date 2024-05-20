@@ -8,31 +8,50 @@ const getCriticaData = async (id: string) => {
     const supabase = createServerClient();
 
     // Obtener datos de la crítica
-    const { data: criticisms } = await supabase
+    const { data: criticism } = await supabase
         .from("criticisms")
         .select()
-        .filter("id", "eq", id)
-        .limit(1)
+        .eq("id", id)
         .single();
 
     // Obtener datos de las opiniones asociadas a la crítica
-    const { data: reviews, error } = await supabase
+    const { data: reviews, error: reviewsError } = await supabase
         .from("reviews")
         .select()
-        .filter("id_criticisms", "eq", id);
+        .eq("id_criticisms", id);
 
-    if (error) {
-        console.error("Error fetching reviews:", error.message);
-        return { criticism: criticisms, reviews: [] };
+    if (reviewsError) {
+        console.error("Error fetching reviews:", reviewsError.message);
+        return { criticism, reviews: [] };
     }
 
-    console.log("Reviews:", reviews);
+    // Obtener el usuario y su rol
+    const { data: { user }, error: userError } = await supabase.auth.getUser();
 
-    return { criticism: criticisms, reviews: reviews }; // Devuelve datos de la crítica y las revisiones
+    if (userError) {
+        console.error("Error fetching user:", userError.message);
+        return { criticism, reviews, userRole: null };
+    }
+
+    const { data: profile, error: profileError } = await supabase
+        .from('profiles')
+        .select('rol')
+        .eq('id', user?.id)
+        .single();
+
+    if (profileError) {
+        console.error("Error fetching user profile:", profileError.message);
+        return { criticism, reviews, userRole: null };
+    }
+
+    const userRole = profile.rol;
+
+    return { criticism, reviews, userRole };
 }
 
+
 const CriticaPorIdPage = async ({ params }: any) => {
-    const { criticism, reviews } = await getCriticaData(params.id);
+    const { criticism, reviews, userRole } = await getCriticaData(params.id);
 
     return (
         <>
@@ -53,19 +72,15 @@ const CriticaPorIdPage = async ({ params }: any) => {
                     </div>
                 </div>
 
-                <div className="flex justify-end mb-4 gap-3">
-                    <Link href={`/dashboard/criticas/${criticism.id}/create`} passHref>
-                        <div className="bg-green-500 hover:bg-yellow-400 text-white hover:text-black font-bold py-2 px-4 rounded cursor-pointer">
-                            <PlusIcon className="w-6" />
-                        </div>
-                    </Link>
-
-                    {/* <Link href="/dashboard/criticas/create" passHref>
-                    <div className="bg-blue-700 hover:bg-yellow-400 text-white hover:text-black font-bold py-2 px-4 rounded cursor-pointer">
-                        <PencilIcon className="w-6" />
+                {userRole === 'administrador' && (
+                    <div className="flex justify-end mb-4 gap-3">
+                        <Link href={`/dashboard/criticas/${criticism.id}/create`} passHref>
+                            <div className="bg-green-500 hover:bg-yellow-400 text-white hover:text-black font-bold py-2 px-4 rounded cursor-pointer">
+                                <PlusIcon className="w-6" />
+                            </div>
+                        </Link>
                     </div>
-                </Link> */}
-                </div>
+                )}
 
                 <h3 className="text-2xl font-semibold mb-4">¿Qué dice la crítca de &apos;{criticism.title}&apos;?</h3>
                 <div>
