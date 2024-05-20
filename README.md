@@ -46,11 +46,17 @@ Usuario:
 
 
 ## Capturas
-![](https://firebasestorage.googleapis.com/v0/b/cinegoya-255f9.appspot.com/o/Im%C3%A1genes%2FCapturas%2F1_login.png?alt=media&token=1779e1f2-5c38-4678-a8b1-6232babb130e)<br>
+Vista del administrador
+<br>
+![](https://firebasestorage.googleapis.com/v0/b/cinegoya-255f9.appspot.com/o/Im%C3%A1genes%2FCapturas%2F1.0_login.png?alt=media&token=8bb67635-e804-4632-b5c3-1ba50a51ae3a)
 > Login
 <br>
 
-![](https://firebasestorage.googleapis.com/v0/b/cinegoya-255f9.appspot.com/o/Im%C3%A1genes%2FCapturas%2F2_inicio.png?alt=media&token=1a8065b5-a76a-4925-9f30-dfea03602240)<br>
+![](https://firebasestorage.googleapis.com/v0/b/cinegoya-255f9.appspot.com/o/Im%C3%A1genes%2FCapturas%2F1.1_registro.png?alt=media&token=94e0e3b3-0c78-4848-a5b0-2eee7ff7d2c0)
+> Registro
+<br>
+
+![](https://firebasestorage.googleapis.com/v0/b/cinegoya-255f9.appspot.com/o/Im%C3%A1genes%2FCapturas%2F2_inicio.png?alt=media&token=1a8065b5-a76a-4925-9f30-dfea03602240)
 > Inicio
 <br>
 
