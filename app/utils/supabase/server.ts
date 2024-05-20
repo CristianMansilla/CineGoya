@@ -1,4 +1,3 @@
-
 import { createServerClient as createServerClientSupabase, type CookieOptions } from "@supabase/ssr";
 import { cookies } from "next/headers";
 

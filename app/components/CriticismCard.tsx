@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { PencilIcon, TrashIcon, EyeIcon } from '@heroicons/react/24/outline';
+import { PencilIcon, EyeIcon } from '@heroicons/react/24/outline';
 import { useState } from "react";
 import DeleteCriticaButton from "./DeleteCriticaButton";
 import { createClient } from "../utils/supabase/client";
@@ -30,13 +30,10 @@ const CriticismCard = ({ criticism, rol }: any) => {
     };
 
     const onDelete = async () => {
-        console.log("Deleting criticism with id:", criticism.id); // Log the ID for debugging
         const { data, error } = await supabase
             .from('criticisms')
             .delete()
             .eq("id", criticism.id);
-
-        console.log(data, error);
 
         if (!error) {
             setSuccessMessage('¡La crítica se eliminó con éxito!');

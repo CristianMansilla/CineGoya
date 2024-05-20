@@ -23,7 +23,7 @@ export default async function Page() {
           className="absolute top-0 left-0 w-full h-full object-cover"
           src="https://firebasestorage.googleapis.com/v0/b/cinegoya-255f9.appspot.com/o/Videos%2Fbackground-video.mp4?alt=media&token=e4073981-9a36-4c81-b795-7b703b622346"
         >
-          Your browser does not support the video tag.
+          Su navegador no soporta el video.
         </video>
         <div className="relative z-10 flex justify-center flex-col p-3 bg-black bg-opacity-50 h-full">
           <div className="flex shrink-0 items-end rounded-lg p-3 bg-blue-500 md:h-30 opacity-80">

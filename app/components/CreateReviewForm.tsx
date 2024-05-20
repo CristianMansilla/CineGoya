@@ -20,8 +20,6 @@ const CreateReviewForm = ({ selectedCriticismId }: { selectedCriticismId: number
     const [criticisms, setCriticisms] = useState<DataProps[]>([]);
     const [selectedTitle, setSelectedTitle] = useState<string>('');
 
-    console.log("ID recibido en CreateReviewForm:", selectedCriticismId);
-
     useEffect(() => {
         async function fetchCriticisms() {
             try {
@@ -79,7 +77,7 @@ const CreateReviewForm = ({ selectedCriticismId }: { selectedCriticismId: number
                 setCriticisms(updatedCriticisms.data || []);
             }
 
-            // Actualizar los datos de críticas manualmente utilizando mutate
+            // Actualizar los datos de críticas
             mutate(`${urlLocal}/api/criticisms`);
         }
     };

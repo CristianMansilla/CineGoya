@@ -10,11 +10,9 @@ const getPeliculaData = async (id: string) => {
 
     return data || {}
 }
-const PeliculaPorIdPage = async ({ params }: any) => {
-    console.log("param", params);
 
+const PeliculaPorIdPage = async ({ params }: any) => {
     const data = await getPeliculaData(params.id);
-    console.log("data", data);
 
     const horas = Math.floor(data.runtime / 60);
     const minutos = data.runtime % 60;
@@ -32,7 +30,7 @@ const PeliculaPorIdPage = async ({ params }: any) => {
                     <div className="w-full md:w-1/2 p-6">
                         <h2 className="text-3xl md:text-5xl font-semibold text-gray-800">{data.title}</h2>
                         <p className="text-gray-600 mt-2">
-                            <span className="font-bold">Genres: </span>{data.genres.map((genre: { name: string }) => genre.name).join(', ')}
+                            <span className="font-bold">Géneros: </span>{data.genres.map((genre: { name: string }) => genre.name).join(', ')}
                         </p>
                         <p className="text-gray-600 mt-2">
                             <span className="font-bold">Reseña: </span>{data.overview}

@@ -1,13 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createServerClient } from "@/app/utils/supabase/server";
-import { use } from "react";
 
 export const POST = async (req: NextRequest) => {
     const body = await req.json();
     const { fullName, email, password } = body;
 
     const supabase = createServerClient();
-
 
     // Registro de usuario
     const { data: user, error } = await supabase.auth.signUp({ email, password });

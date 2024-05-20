@@ -1,13 +1,6 @@
-import { Suspense, useState } from "react";
 import PeliCard from "../components/PeliCard";
-import { lusitana } from "../ui/fonts";
 import { createServerClient } from "../utils/supabase/server";
 import { redirect } from 'next/navigation';
-import DashboardSkeleton from "../ui/skeletons";
-import { resolve } from "path";
-
-/* let url_base = "https://api.themoviedb.org/3/movie/popular";
-const api_key = process.env.API_KEY; */
 
 const urlLocal = process.env.NEXT_PUBLIC_URL;
 
@@ -33,10 +26,6 @@ interface Pelicula {
 }
 
 const Dashboard = async () => {
-    /* const response = await fetch(`${url_base}?api_key=${api_key}`);
-    const data = await response.json();
-    const peliculasPopulares = data.results; */
-
     const supabase = createServerClient();
     const user = await supabase.auth.getUser();
     
@@ -48,7 +37,7 @@ const Dashboard = async () => {
 
     try {
         const { peliculasPopulares } = await getDashboardData();
-        console.log("Datos de películas popus:", peliculasPopulares);
+        // console.log("Datos de películas popus:", peliculasPopulares);
         
         return (
             <>

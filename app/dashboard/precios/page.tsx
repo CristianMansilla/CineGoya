@@ -1,7 +1,3 @@
-import { CurrencyDollarIcon } from '@heroicons/react/24/solid';
-import PochocloGaseosaImage from '../assets/pochoclo_gaseosa.jpg'; // Importa la imagen de pochoclo y gaseosa
-import TarjetaDebitoImage from '../assets/tarjeta_debito.jpg'; // Importa la imagen de tarjetas de débito
-
 const Precios = () => {
     return (
         <>
@@ -70,12 +66,10 @@ const Precios = () => {
                     <h2 className="text-xl font-semibold mb-2">Oferta de la semana</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <div className="bg-orange-100 p-6 rounded-lg flex flex-col justify-center items-center">
-                            {/* <img src={PochocloGaseosaImage} alt="Pochoclo y Gaseosa" className="w-24 h-24 mb-4" /> */}
                             <p className="text-gray-700">2 Entradas + 2 Pochoclos + 2 Gaseosas</p>
                             <h3 className="text-gray-800 mt-7">$10000</h3>
                         </div>
                         <div className="bg-orange-100 p-6 rounded-lg flex flex-col justify-center items-center">
-                            {/* <img src={TarjetaDebitoImage} alt="Tarjetas de Débito" className="w-24 h-24 mb-4" /> */}
                             <p className="text-gray-700">2 Entradas - débito (BanCo, MP, Santander)</p>
                             <h3 className="text-gray-800 mt-7">$5000</h3>
                         </div>

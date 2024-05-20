@@ -1,4 +1,3 @@
-import { TrashIcon } from '@heroicons/react/24/outline';
 import styles from './DeleteConfirmationModal.module.css';
 
 interface DeleteConfirmationModalProps {
