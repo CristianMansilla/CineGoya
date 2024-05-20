@@ -26,7 +26,7 @@ export default async function Page() {
           Your browser does not support the video tag.
         </video>
         <div className="relative z-10 flex justify-center flex-col p-3 bg-black bg-opacity-50 h-full">
-          <div className="flex shrink-0 items-end rounded-lg bg-blue-500 md:h-30 opacity-80">
+          <div className="flex shrink-0 items-end rounded-lg p-3 bg-blue-500 md:h-30 opacity-80">
             <Image className='opacity-100' src="/logo-cinegoya.png" alt="Logo CineGoya" width={100} height={100}></Image>
           </div>
           <div className="mt-4 flex grow flex-col gap-4 md:flex-row">

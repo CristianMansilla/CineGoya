@@ -29,6 +29,6 @@
     ".next/types/**/*.ts",
     "app/lib/placeholder-data.js",
     "scripts/seed.js"
-, "app/hooks/useUserRole.js"  ],
+, "app/hooks/useUserRole.ts", "app/hooks/useUserProfile.ts"  ],
   "exclude": ["node_modules"]
 }
