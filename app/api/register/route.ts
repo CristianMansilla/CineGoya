@@ -27,9 +27,3 @@ export const POST = async (req: NextRequest) => {
 
     return NextResponse.json({ message: 'Usuario registrado exitosamente', user }, { status: 200 });
 };
-
-export const config = {
-    api: {
-        bodyParser: true,
-    },
-};
