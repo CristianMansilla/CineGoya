@@ -6,7 +6,7 @@ const api_key = process.env.API_KEY;
 export const GET = async (req: NextRequest, res: NextResponse) => {
 
     try {
-        const response = await fetch(`${url_base}?api_key=${api_key}`);
+        const response = await fetch(`${url_base}?api_key=${api_key}&language=es-ES`);
         const data = await response.json();
         const peliculasPopulares = data.results;
         console.log("Datos de películas populares:", peliculasPopulares);

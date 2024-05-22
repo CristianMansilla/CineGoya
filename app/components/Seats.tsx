@@ -1,24 +1,35 @@
 import { StopIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
 
+interface SeatsProps {
+    onSelectionChange: (selectedSeats: string[]) => void;
+}
 
-const Seats = () => {
+const Seats = ({ onSelectionChange }: SeatsProps) => {
     const rows = 7;
     const cols = 9;
     const seats = [];
 
+    // Estado local para almacenar los índices de las butacas seleccionadas
     const [selectedSeats, setSelectedSeats] = useState<string[]>([]);
 
-    const handleSeatClick = (row:number, col:number) => {
+    
+    const handleSeatClick = (row: number, col: number) => {
         // Generar un identificador único para la butaca
         const seatId = `${row}-${col}`;
 
         // Verificar si la butaca ya está seleccionada
+        let updatedSeats: string[];
         if (selectedSeats.includes(seatId)) {
-            setSelectedSeats(selectedSeats.filter(seat => seat !== seatId));
+            // Si la butaca ya está seleccionada, quitarla de la lista de seleccionadas
+            updatedSeats = selectedSeats.filter(seat => seat !== seatId);
         } else {
-            setSelectedSeats([...selectedSeats, seatId]);
+            // Si la butaca no está seleccionada, agregarla a la lista de seleccionadas
+            updatedSeats = [...selectedSeats, seatId];
         }
+
+        setSelectedSeats(updatedSeats);
+        onSelectionChange(updatedSeats);
     };
 
     for (let i = 1; i <= rows; i++) {
@@ -33,7 +44,7 @@ const Seats = () => {
         }
     }
 
-    return seats;
+    return <>{seats}</>;
 };
 
 export default Seats;

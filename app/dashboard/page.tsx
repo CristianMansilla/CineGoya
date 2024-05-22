@@ -32,12 +32,9 @@ const Dashboard = async () => {
     if (user.error) {
         return redirect('/');
     }
-    
-    const { peliculasPopulares } = await getDashboardData();
 
     try {
         const { peliculasPopulares } = await getDashboardData();
-        // console.log("Datos de películas popus:", peliculasPopulares);
         
         return (
             <>
